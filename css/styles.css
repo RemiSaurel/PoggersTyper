@@ -61,14 +61,14 @@ span {
     border-radius: 10px;
 }
 
-#score {
+.score {
     font-size: 30px;
     text-align: center;
     margin: auto;
 }
 
 #timer {
-    font-size: 38px;
+    font-size: 42px;
     text-align: center;
     margin: auto;
     color: blanchedalmond;
