@@ -16,6 +16,7 @@ span {
     border-radius: 10px;
     text-align: center;
     width: 50%;
+    min-width: 400px;
     margin: auto;
     height: 80px;
     white-space: nowrap;
@@ -40,7 +41,8 @@ span {
 
 .title {
     text-align: center;
-    font-size: 2rem;
+    font-size: 4rem;
+    margin-bottom: 4vh;
 }
 
 #input {
@@ -101,13 +103,26 @@ span {
     position: relative;
     top: 3px;
 }
+#links {
+    display:flex;
+    justify-content: flex-end;
+}
+#links img {
+    width: 24px;
+    margin: 10px;
+    height: 24px;
+}
 
-#heart {
-    position: fixed;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, -50%);
-    margin: 0 auto;
+#wrongWords {
+    margin: 5px;
+}
+
+.mistakeWord {
+    color: #e46464
+}
+
+.correctWord {
+    color: #7fe097
 }
 
 /*BACKGROUND*/

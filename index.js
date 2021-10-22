@@ -3,6 +3,7 @@ let index = 0;
 let selectedWords = [];
 let score = 0;
 let aps = 0;
+let solutions = new Map();
 
 window.addEventListener('load', function () {
     generateArray()
@@ -34,9 +35,9 @@ function validateWord() {
         if (event.keyCode === 32 || event.keyCode === 13) {
             document.getElementById('wordInput').innerHTML = document.getElementById('wordInput').value
             aps += document.getElementById('wordInput').value.length + 1;
-            getWordInput()
             trackWord(index)
             updateScore()
+            getWordInput()
             index++;
             return false;
         }
@@ -67,6 +68,7 @@ function updateScore() {
         score++;
         document.querySelector("#score").innerHTML = "Score : " + score;
     } else {
+        solutions.set(selectedWords[index], document.getElementById('wordInput').value)
         document.getElementById('wordInput').style.background = "#571b1b"
     }
     resetBackground()
@@ -119,6 +121,15 @@ function showScores() {
     document.getElementById("apm").innerHTML = aps + " actions par minute 👽";
     document.getElementById("aps").innerHTML = Math.round(aps * 100 / 60) / 100 + " actions par seconde ✨";
     document.getElementById("score").style.marginTop = "8px"
+    document.getElementById('wrongWords').innerHTML = "Erreurs :<br>"
+    showWordsErrors()
+}
+
+function showWordsErrors() {
+    console.log(solutions)
+    for (let [key, value] of solutions.entries()) {
+        document.getElementById('wrongWords').innerHTML += "<span class='mistakeWord'>" + value + "</span>" + " ➡ <span class='correctWord'>" + key + "</span><br>"
+    }
 }
 
 function setFirstWordStyle() {
@@ -130,6 +141,3 @@ function setFirstWordStyle() {
 document.getElementById('reset').onclick = function () {
     location.reload();
 }
-
-
-
