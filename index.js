@@ -79,7 +79,12 @@ function timer() {
         if (seconds === 60000)
             timer = setInterval(starting, 1000)
         seconds -= 1000;
-        document.getElementById("timer").innerHTML = '0:' + seconds / 1000;
+        if (seconds / 1000 < 10) {
+            document.getElementById("timer").innerHTML = '0:0' + seconds / 1000;
+        } else {
+            document.getElementById("timer").innerHTML = '0:' + seconds / 1000;
+        }
+
         if (seconds <= 0) {
             clearInterval(timer);
             document.getElementById("score").innerHTML = score + " mots par minute. 👍";

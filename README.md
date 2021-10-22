@@ -1,1 +1,3 @@
 # PoggersTyper
+
+Funny project 😎
