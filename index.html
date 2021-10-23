@@ -27,6 +27,18 @@
         <div class="title">
             POGGERS TYPER
         </div>
+        <div id="settings">
+            <fieldset>
+                Lg max : <input type="range" id="inputMaxLength" oninput="this.nextElementSibling.value = this.value"
+                    onchange="updateMax();">
+                <output id="outputMaxLength"></output>
+                <br>
+                Lg min : <input type="range" id="inputMinLength" oninput="this.nextElementSibling.value = this.value"
+                    onchange="updateMin();">
+                <output id="outputMinLength"></output>
+            </fieldset>
+            <button id="generateWithSettings" onclick="generateWithSettings()">GENERATE</button>
+        </div>
         <div id="displayWords">
         </div>
         <div id="input">
