@@ -81,7 +81,7 @@ function validateWord() {
             aps += document.getElementById('wordInput').value.length + 1;
             trackWord(index)
             updateScore()
-            getWordInput()
+            clearInput()
             index++;
             console.log(accents)
             return false;
@@ -90,10 +90,6 @@ function validateWord() {
 }
 function clearInput() {
     document.getElementById('wordInput').value = ""
-}
-
-function getWordInput() {
-    clearInput()
 }
 
 function trackWord(index) {
