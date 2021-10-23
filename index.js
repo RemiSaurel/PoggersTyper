@@ -131,10 +131,10 @@ function timer() {
     let timer;
     let time = 0;
     let seconds = 1000 * 60; //1000 = 1 second in JS
-    textarea.addEventListener('keypress', starting)
+    textarea.addEventListener('keyup', starting)
 
     function starting() {
-        textarea.removeEventListener("keypress", starting);
+        textarea.removeEventListener("keyup", starting);
         if (seconds === 60000)
             timer = setInterval(starting, 1000)
         if (time !== 0) { // avoid NaN
