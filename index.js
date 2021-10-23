@@ -108,7 +108,7 @@ function trackWord(index) {
 
 function updateScore() {
     document.querySelector("#score").innerHtml = "Score : " + score;
-    if (document.getElementById('wordInput').textContent === selectedWords[index]) {
+    if (document.getElementById('wordInput').textContent.toLowerCase() === selectedWords[index]) {
         document.getElementById('wordInput').style.background = "#2f4e21"
         score++;
         document.querySelector("#score").innerHTML = "Score : " + score;
