@@ -8,7 +8,6 @@ let minLength = DEFAULT_WORD_MIN_LENGTH; // DEFAULT VALUE
 let selectedWords = [];
 let score = 0;
 let aps = 0;
-let accents = false;
 let solutions = new Map();
 
 window.addEventListener('load', function () {
@@ -72,19 +71,26 @@ function displayRandomWords() {
         div.appendChild(newDiv)
     }
 }
+
+// WHEN USER VALIDATES WORD
 function validateWord() {
     document.getElementById('wordInput').onkeydown = function (event) {
         document.getElementById('generateWithSettings').disabled = true;
         document.getElementById('generateWithSettings').style.background = "grey";
         if ((event.keyCode === 32 || event.keyCode === 13) && document.getElementById('wordInput').value.trim() !== "") {
             document.getElementById('wordInput').innerHTML = document.getElementById('wordInput').value.trim()
-            aps += document.getElementById('wordInput').value.length + 1;
+            let word = document.getElementById('displayWords').getElementsByTagName('span').item(index).innerHTML
+            let lengthInputUser = document.getElementById('wordInput').value.length;
+            // DEAL IF USER WANTS TO BOOST APS :)
+            if (lengthInputUser > word.length) {
+                aps += word.length + 1;
+            } else {
+                aps += document.getElementById('wordInput').value.length + 1;
+            }
             trackWord(index)
             updateScore()
             clearInput()
             index++;
-            console.log(accents)
-            return false;
         }
     }
 }
